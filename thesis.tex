@@ -1,0 +1,199 @@
+% !TeX root = ./thesis.tex
+% !TeX spellcheck = hu_HU
+% !TeX encoding = UTF-8
+% !TeX program = pdflatex
+% !TeX TXS-program:compile = txs:///python//usr/bin/python3
+\documentclass[12pt,a4paper,oneside]{report}             % Egyoldalas (javasolt)
+%\documentclass[11pt,a4paper,twoside,openright]{report}  % Duplex
+\input{include/packages}
+%--------------------------------------------------------------------------------------
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{caption}
+\usepackage{graphicx} % Képek kezeléséhez
+\usepackage{listings} % Kódrészletekhez
+\usepackage{booktabs} % Táblázatokhoz
+\usepackage{comment}
+\usepackage[magyar]{babel}
+\usepackage{amsmath}
+\usepackage{ragged2e}
+\usepackage{array}
+\usepackage{times}
+\usepackage{fancyhdr}
+\usepackage[a4paper, left=3cm, right=2.54cm, top=2.54cm, bottom=2.54cm]{geometry}
+% Fejléc és lábléc
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textnormal{\thetitle}}
+\fancyhead[C]{\szerzoNeptun}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\usepackage{titlesec}
+% 1. szint: Decimális számozás, 3.1.3-ban meghatározott stílus
+\titleformat{\section}[block]
+  {\bfseries\fontsize{16pt}{19.2pt}\selectfont} % Félkövér, 16pt betűméret
+  {\thesection.} % Számozás
+  {1em} % Címszöveg előtti távolság
+  {} % Címszöveg formázása
+
+\titlespacing{\section}
+  {0pt} % Bal oldali behúzás
+  {24pt} % Cím előtti térköz
+  {18pt} % Cím utáni térköz
+
+% 2. szint: Decimális számozás, stílus szerint
+\titleformat{\subsection}[block]
+  {\bfseries\fontsize{14pt}{16.8pt}\selectfont} % Félkövér, 14pt betűméret
+  {\thesubsection.}
+  {1em}
+  {}
+
+\titlespacing{\subsection}
+  {0pt}
+  {18pt}
+  {12pt}
+
+% 3. szint: Decimális számozás, stílus szerint
+\titleformat{\subsubsection}[block]
+  {\normalfont\fontsize{14pt}{16.8pt}\selectfont} % Normál, 14pt betűméret
+  {\thesubsubsection.}
+  {1em}
+  {}
+
+\titlespacing{\subsubsection}
+  {0pt}
+  {12pt}
+  {6pt}
+
+% 4. és további szintek: egyéni meghatározás
+\titleformat{\subsubsubsection}[block]
+  {\normalfont\fontsize{14pt}{16.8pt}\selectfont} % Normál, 14pt betűméret
+  {\thesubsubsubsection.}
+  {1em}
+  {}
+
+\titlespacing{\subsubsubsection}
+  {0pt}
+  {12pt}
+  {6pt}
+
+% Alapértelmezett képaláírás beállítás
+\captionsetup{
+  font=bf, % Félkövér
+  labelfont=bf,
+  format=plain,
+  justification=centering, % Középre igazítás
+  textfont={bf,rm}, % Times New Roman betűtípus
+  labelsep=period, % Pont a típus és a cím között
+  %skip=6pt, % Cím előtti térköz
+  %belowskip=18pt % Cím utáni térköz
+}
+
+% Képeknél és ábráknál a ”képaláírás” az objektum alá, táblázatoknál és kódrészleteknél az objektum fölé kerüljön
+%\captionsetup[figure]{position=bottom}
+%\captionsetup[table]{position=top}
+%\captionsetup[lstlisting]{position=top}
+
+
+%--------------------------------------------------------------------------------------
+\newcommand{\szerzoVezeteknev}{Székely}
+\newcommand{\szerzoKeresztnev}{Dániel}
+\newcommand{\szerzoNeptun}{JAXC3C}
+
+\newcommand{\szakirany}{} % Informatikusoknál nincs szakirány. Villamosmérnököknél: Automatizálás (\aut) vagy Infokommunikáció (\infokom).
+
+\newcommand{\konzulensAMegszolitas}{}
+\newcommand{\konzulensAVezeteknev}{Paál}
+\newcommand{\konzulensAKeresztnev}{Dávid}
+\newcommand{\konzulensBMegszolitas}{}
+\newcommand{\konzulensBVezeteknev}{Tamás}
+\newcommand{\konzulensBKeresztnev}{Dávid}
+\newcommand{\konzulensCMegszolitas}{}
+\newcommand{\konzulensCVezeteknev}{}
+\newcommand{\konzulensCKeresztnev}{}
+
+\newcommand{\cim}{Mitől leszek jó vezető? Egyéni kompetencia-elemzés és fejlesztési terv} % Cím
+\newcommand{\tanszek}{\szeit} % informatika (\szeit), automatizálási (\szeaut) vagy távközlési (\szetat)
+\newcommand{\szak}{\infoMSc} % Mérnökinformatikus BSc (\infoMsc), MSc (\infoMsc), Gazdaságinformatikus BSc (\gazdInfoBsc), MSc (\gazdInfoMsc), vagy Villamosmérnöki BSc (\villBSc), MSc (\villMSc)
+
+\include{include/variables}
+% Beállítások magyar nyelvű dolgozathoz
+\input{include/thesis-hu}
+% Settings for English documents
+%\input{include/thesis-en}
+
+
+\newcommand{\szerzoMeta}{\szerzoVezeteknev{} \szerzoKeresztnev} % egy szerző esetén TODO@FMA két szerző
+\newcommand{\doktipus}{\szakdolgozat} % Dokumentum típusa (\szakdolgozat, \diplomaterv vagy \dolgozat)
+
+\input{include/preamble} % beállítások, nem kell vele foglalkoznod remélhetőleg, de ha valami latex hekkelésre vagy új parancsra van szükséged annak itt a helye
+
+% A default szöveg legyen times new roman 12-es
+
+
+%--------------------------------------------------------------------------------------
+% Itt kezdődik a dolgozat
+%--------------------------------------------------------------------------------------
+% Másfeles sorköz
+\newcommand{\masfelessorkoz}{\renewcommand{\baselinestretch}{1.24}\small\normalsize}
+%--------------------------------------------------------------------------------------
+
+\begin{document}
+
+\selectthesislanguage
+
+% Külső borító, minta kötéshez - csak elektronikus leadás esetén eltávolítandó
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%\include{include/outercover}
+
+% Címoldal 
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\include{include/titlepage}
+
+%TODO Feladatkiíró lap helye, csak a nyomtatott verzióba kerül az eredeti példány
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\include{include/project}
+
+% Nyilatkozat és Kivonat
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\masfelessorkoz{
+% Tartalomjegyzék
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\tableofcontents\vfill
+
+% A dolgozat lényegi része
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% Saját munka
+
+\include{content/introduction}
+\include{content/literature}
+\include{content/introspection}
+\include{content/competence_development_plan}
+
+% Ábrák listája - a word-ös sablon szerint szükséges
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\listoffigures\addcontentsline{toc}{chapter}{\listfigurename}
+
+% Táblázatok listája - opcionális
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\listoftables\addcontentsline{toc}{chapter}{\listtablename}
+
+% Irodalomjegyzék
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{bib/references}
+
+% Függelékek
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%\include{content/appendices}
+
+%\label{page:last}
+}
+\end{document}
