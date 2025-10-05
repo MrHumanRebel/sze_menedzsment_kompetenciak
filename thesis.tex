@@ -22,6 +22,11 @@
 \usepackage{times}
 \usepackage{fancyhdr}
 \usepackage[a4paper, left=3cm, right=2.54cm, top=2.54cm, bottom=2.54cm]{geometry}
+
+\usepackage{hyperref}
+\usepackage{attachfile2} % PDF csatolására
+
+
 % Fejléc és lábléc
 \pagestyle{fancy}
 \fancyhf{}
@@ -174,9 +179,12 @@
 
 \include{content/introduction}
 \include{content/literature}
+\include{content/management_experience}
 \include{content/introspection}
 \include{content/competence_development_plan}
 
+% Mellékletek
+\input{content/survey}
 % Ábrák listája - a word-ös sablon szerint szükséges
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \listoffigures\addcontentsline{toc}{chapter}{\listfigurename}
