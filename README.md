@@ -20,7 +20,7 @@ git clone
 ### Lépjen be a mappába
 
 ```bash
-cd sze_dante_network_thesis
+cd sze_menedzsment_kompetenciak
 ```
 
 ### Telepítse fel a VS Code-ot
