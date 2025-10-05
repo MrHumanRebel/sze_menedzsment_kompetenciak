@@ -1,5 +1,5 @@
 # Széchenyi István Egyetem // Győr // Menedzsment kompetenciák // KGLM_VKTM005
-**Széchenyi István Egyetem Győr - Mérnökinformatikus BSc 2024**
+**Széchenyi István Egyetem Győr - Mérnökinformatikus MSc 2025**
 
 <div style="overflow: auto;">
     <img src="figures/sze_logo.png" alt="Sze Logo" width="200"  style="float: right;">
